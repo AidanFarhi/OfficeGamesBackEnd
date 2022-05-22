@@ -3,6 +3,7 @@ package com.farhi.gametracker.backend.player;
 import com.farhi.gametracker.backend.officegame.OfficeGame;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,9 +23,9 @@ public class Player {
     private Long id;
     private String playerName;
 
-    @OneToMany(mappedBy="playerOne", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="playerOne")
     private Set<OfficeGame> gamesWherePlayerOne;
-    @OneToMany(mappedBy="playerTwo", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="playerTwo")
     private Set<OfficeGame> gamesWherePlayerTwo;
 
     public Player() {}

@@ -19,9 +19,11 @@ public class OfficeGame {
     )
     @Column(name = "id")
     Long id;
+
     @ManyToOne
     @JoinColumn(name = "player_one_id")
     Player playerOne;
+
     @ManyToOne
     @JoinColumn(name = "player_two_id")
     Player playerTwo;
