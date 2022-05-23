@@ -6,11 +6,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
 
-    private PlayerRepository repository;
+    private final PlayerRepository repository;
 
     @Autowired
     public PlayerService(PlayerRepository repository) {
@@ -24,5 +25,15 @@ public class PlayerService {
             response.add(new PlayerResponse(player.getId(), player.getPlayerName()));
         }
         return response;
+    }
+
+    public void addNewPlayer(Player newPlayer) {
+        // TODO: check if player already exists
+        repository.save(newPlayer);
+    }
+
+    public void deletePlayer(Long id) {
+        Optional<Player> playerOptional = repository.findById(id);
+        playerOptional.ifPresent(repository::delete);
     }
 }

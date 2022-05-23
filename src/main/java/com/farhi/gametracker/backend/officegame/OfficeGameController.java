@@ -27,4 +27,9 @@ public class OfficeGameController {
     public void newGame(@RequestBody NewGameRequest request) {
         service.addNewGame(request);
     }
+
+    @DeleteMapping("/delete-game")
+    public void deleteGame(@RequestParam Long id) {
+        service.deleteGame(id);
+    }
 }

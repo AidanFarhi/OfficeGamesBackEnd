@@ -45,17 +45,24 @@ public class OfficeGameService {
                 String playerOneName = player.getPlayerName();
                 String playerTwoName = game.getPlayerTwo().getPlayerName();
                 response.add(new OfficeGameResponse(
-                        game.getId(), playerOneName, playerTwoName, game.getPlayerOneScore(), game.getPlayerTwoScore())
+                        game.getId(), playerOneName, playerTwoName,
+                        game.getPlayerOneScore(), game.getPlayerTwoScore())
                 );
             }
             for (OfficeGame game : player.getGamesWherePlayerTwo()) {
                 String playerOneName = game.getPlayerOne().getPlayerName();
                 String playerTwoName = player.getPlayerName();
                 response.add(new OfficeGameResponse(
-                        game.getId(), playerOneName, playerTwoName, game.getPlayerOneScore(), game.getPlayerTwoScore())
+                        game.getId(), playerOneName, playerTwoName,
+                        game.getPlayerOneScore(), game.getPlayerTwoScore())
                 );
             }
         }
         return response;
+    }
+
+    public void deleteGame(Long id) {
+        Optional<OfficeGame> officeGameOptional = officeGameRepository.findById(id);
+        officeGameOptional.ifPresent(officeGameRepository::delete);
     }
 }

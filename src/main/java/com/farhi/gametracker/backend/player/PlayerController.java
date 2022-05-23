@@ -2,9 +2,7 @@ package com.farhi.gametracker.backend.player;
 
 import com.farhi.gametracker.backend.json.PlayerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,15 @@ public class PlayerController {
     @GetMapping("/get-players")
     public List<PlayerResponse> getPlayers() {
         return service.getPlayers();
+    }
+
+    @PostMapping("/new-player")
+    public void addNewPlayer(@RequestBody Player newPlayer) {
+        service.addNewPlayer(newPlayer);
+    }
+
+    @DeleteMapping("/delete-player")
+    public void deletePlayer(@RequestParam Long id) {
+        service.deletePlayer(id);
     }
 }
