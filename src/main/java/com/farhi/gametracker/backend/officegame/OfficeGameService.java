@@ -25,7 +25,7 @@ public class OfficeGameService {
 
     public void addNewGame(NewGameRequest request) {
         Optional<Player> playerOneOptional = playerRepository.findById(request.getPlayerOneId());
-        Optional<Player> playerTwoOptional = playerRepository.findById(request.getPlayerTwoId());
+        Optional<Player> playerTwoOptional = playerRepository.findByPlayerName(request.getPlayerTwoName());
         Integer playerOneScore = request.getPlayerOneScore();
         Integer playerTwoScore = request.getPlayerTwoScore();
         if (playerOneOptional.isPresent() && playerTwoOptional.isPresent()) {

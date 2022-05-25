@@ -3,15 +3,15 @@ package com.farhi.gametracker.backend.json;
 public class NewGameRequest {
 
     private Long playerOneId;
-    private Long playerTwoId;
+    private String playerTwoName;
     private Integer playerOneScore;
     private Integer playerTwoScore;
 
     public NewGameRequest() {}
 
-    public NewGameRequest(Long playerOneId, Long playerTwoId, Integer playerOneScore, Integer playerTwoScore) {
+    public NewGameRequest(Long playerOneId, String playerTwoName, Integer playerOneScore, Integer playerTwoScore) {
         this.playerOneId = playerOneId;
-        this.playerTwoId = playerTwoId;
+        this.playerTwoName = playerTwoName;
         this.playerOneScore = playerOneScore;
         this.playerTwoScore = playerTwoScore;
     }
@@ -24,12 +24,12 @@ public class NewGameRequest {
         this.playerOneId = playerOneId;
     }
 
-    public Long getPlayerTwoId() {
-        return playerTwoId;
+    public String getPlayerTwoName() {
+        return playerTwoName;
     }
 
-    public void setPlayerTwoId(Long playerTwoId) {
-        this.playerTwoId = playerTwoId;
+    public void setPlayerTwoName(String playerTwoName) {
+        this.playerTwoName = playerTwoName;
     }
 
     public Integer getPlayerOneScore() {
