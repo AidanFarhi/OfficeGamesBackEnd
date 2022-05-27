@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 public interface LeaderBoardRow {
     @Value("#{target.player_name}")
     String getPlayerName();
+    @Value("#{target.games_played}")
+    Integer getGamesPlayed();
     @Value("#{target.points_for}")
     Integer getPointsFor();
     @Value("#{target.points_against}")
