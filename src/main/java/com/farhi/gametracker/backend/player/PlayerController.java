@@ -4,6 +4,7 @@ import com.farhi.gametracker.backend.json.PlayerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,12 @@ public class PlayerController {
     @PostMapping("/new-player")
     public void addNewPlayer(@RequestBody Player newPlayer) {
         service.addNewPlayer(newPlayer);
+    }
+
+    @PostMapping("/login")
+    public Long login(@RequestBody HashMap<String, String> usernameRequest) {
+        String username = usernameRequest.get("username");
+        return service.login(username);
     }
 
     @DeleteMapping("/delete-player")

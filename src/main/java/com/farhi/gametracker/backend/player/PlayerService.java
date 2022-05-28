@@ -36,4 +36,12 @@ public class PlayerService {
         Optional<Player> playerOptional = repository.findById(id);
         playerOptional.ifPresent(repository::delete);
     }
+
+    public Long login(String username) {
+        Optional<Player> playerOptional = repository.findByPlayerName(username);
+        if (playerOptional.isPresent()) {
+            return playerOptional.get().getId();
+        }
+        return -1L;
+    }
 }
