@@ -1,6 +1,5 @@
 package com.farhi.gametracker.backend.officegame;
 
-import com.farhi.gametracker.backend.json.NewGameRequest;
 import com.farhi.gametracker.backend.json.OfficeGameResponse;
 import com.farhi.gametracker.backend.player.Player;
 import com.farhi.gametracker.backend.player.PlayerRepository;
@@ -23,18 +22,18 @@ public class OfficeGameService {
         this.playerRepository = playerRepository;
     }
 
-    public void addNewGame(NewGameRequest request) {
-        Optional<Player> playerOneOptional = playerRepository.findById(request.getPlayerOneId());
-        Optional<Player> playerTwoOptional = playerRepository.findByPlayerName(request.getPlayerTwoName());
-        Integer playerOneScore = request.getPlayerOneScore();
-        Integer playerTwoScore = request.getPlayerTwoScore();
-        if (playerOneOptional.isPresent() && playerTwoOptional.isPresent()) {
-            Player playerOne = playerOneOptional.get();
-            Player playerTwo = playerTwoOptional.get();
-            OfficeGame newGame = new OfficeGame(playerOne, playerTwo, playerOneScore, playerTwoScore);
-            officeGameRepository.save(newGame);
-        }
-    }
+//    public void addNewGame(NewGameRequest request) {
+//        Optional<Player> playerOneOptional = playerRepository.findById(request.getPlayerOneId());
+//        Optional<Player> playerTwoOptional = playerRepository.findByPlayerName(request.getPlayerTwoName());
+//        Integer playerOneScore = request.getPlayerOneScore();
+//        Integer playerTwoScore = request.getPlayerTwoScore();
+//        if (playerOneOptional.isPresent() && playerTwoOptional.isPresent()) {
+//            Player playerOne = playerOneOptional.get();
+//            Player playerTwo = playerTwoOptional.get();
+//            OfficeGame newGame = new OfficeGame(playerOne, playerTwo, playerOneScore, playerTwoScore);
+//            officeGameRepository.save(newGame);
+//        }
+//    }
 
     public List<OfficeGameResponse> getUserGames(Long id) {
         List<OfficeGameResponse> response = new ArrayList<>();

@@ -1,6 +1,5 @@
 package com.farhi.gametracker.backend.officegame;
 
-import com.farhi.gametracker.backend.json.NewGameRequest;
 import com.farhi.gametracker.backend.json.OfficeGameResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,10 +22,10 @@ public class OfficeGameController {
         return service.getUserGames(id);
     }
 
-    @PostMapping("/new-game")
-    public void newGame(@RequestBody NewGameRequest request) {
-        service.addNewGame(request);
-    }
+//    @PostMapping("/new-game")
+//    public void newGame(@RequestBody NewGameRequest request) {
+//        service.addNewGame(request);
+//    }
 
     @DeleteMapping("/delete-game")
     public void deleteGame(@RequestParam Long id) {

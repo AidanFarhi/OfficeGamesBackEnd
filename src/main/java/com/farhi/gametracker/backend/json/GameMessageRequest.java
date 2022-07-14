@@ -1,15 +1,15 @@
 package com.farhi.gametracker.backend.json;
 
-public class NewGameRequest {
+public class GameMessageRequest {
 
     private Long playerOneId;
     private String playerTwoName;
     private Integer playerOneScore;
     private Integer playerTwoScore;
 
-    public NewGameRequest() {}
+    public GameMessageRequest() {}
 
-    public NewGameRequest(Long playerOneId, String playerTwoName, Integer playerOneScore, Integer playerTwoScore) {
+    public GameMessageRequest(Long playerOneId, String playerTwoName, Integer playerOneScore, Integer playerTwoScore) {
         this.playerOneId = playerOneId;
         this.playerTwoName = playerTwoName;
         this.playerOneScore = playerOneScore;

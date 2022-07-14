@@ -1,5 +1,6 @@
 package com.farhi.gametracker.backend.gamemessage;
 
+import com.farhi.gametracker.backend.json.GameMessageRequest;
 import com.farhi.gametracker.backend.json.GameMessageResponse;
 import com.farhi.gametracker.backend.player.Player;
 import com.farhi.gametracker.backend.player.PlayerRepository;
@@ -68,5 +69,20 @@ public class GameMessageService {
             return Map.of("status", "successfully deleted");
         }
         return Map.of("status", "game message id not found");
+    }
+
+    public Map<String, String> sendGameMessage(GameMessageRequest request) {
+        Optional<Player> playerOneOptional = playerRepository.findById(request.getPlayerOneId());
+        Optional<Player> playerTwoOptional = playerRepository.findByPlayerName(request.getPlayerTwoName());
+        Integer playerOneScore = request.getPlayerOneScore();
+        Integer playerTwoScore = request.getPlayerTwoScore();
+        if (playerOneOptional.isPresent() && playerTwoOptional.isPresent()) {
+            Player playerOne = playerOneOptional.get();
+            Player playerTwo = playerTwoOptional.get();
+            GameMessage newGameMessage = new GameMessage(playerOne, playerTwo, playerOneScore, playerTwoScore);
+            gameMessageRepository.save(newGameMessage);
+            return Map.of("status", "success");
+        }
+        return Map.of("status", "fail");
     }
 }
