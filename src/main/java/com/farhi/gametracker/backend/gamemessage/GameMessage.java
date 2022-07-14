@@ -28,9 +28,14 @@ public class GameMessage {
     @JoinColumn(name = "receiving_player_id")
     Player receivingPlayer;
 
+    private Integer sendingPlayerScore;
+    private Integer receivingPlayerScore;
+
     public GameMessage(){}
 
-    public GameMessage(Player sendingPlayer, Player receivingPlayer) {
+    public GameMessage(Player sendingPlayer, Player receivingPlayer, Integer sendingPlayerScore, Integer receivingPlayerScore) {
+        this.sendingPlayerScore = sendingPlayerScore;
+        this.receivingPlayerScore = receivingPlayerScore;
         this.sendingPlayer = sendingPlayer;
         this.receivingPlayer = receivingPlayer;
     }
@@ -57,5 +62,21 @@ public class GameMessage {
 
     public void setReceivingPlayer(Player receivingPlayer) {
         this.receivingPlayer = receivingPlayer;
+    }
+
+    public Integer getSendingPlayerScore() {
+        return sendingPlayerScore;
+    }
+
+    public void setSendingPlayerScore(Integer sendingPlayerScore) {
+        this.sendingPlayerScore = sendingPlayerScore;
+    }
+
+    public Integer getReceivingPlayerScore() {
+        return receivingPlayerScore;
+    }
+
+    public void setReceivingPlayerScore(Integer receivingPlayerScore) {
+        this.receivingPlayerScore = receivingPlayerScore;
     }
 }

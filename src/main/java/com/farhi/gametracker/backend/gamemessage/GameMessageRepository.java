@@ -9,5 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface GameMessageRepository extends JpaRepository<GameMessage, Long> {
-    Optional<List<GameMessage>> findAllByReceivingPlayer(Player receivingPlayerId);
+    Optional<List<GameMessage>> findAllByReceivingPlayer(Player receivingPlayer);
+    Optional<List<GameMessage>> findAllBySendingPlayer(Player sendingPlayer);
 }

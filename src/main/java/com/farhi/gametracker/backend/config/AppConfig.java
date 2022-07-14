@@ -33,9 +33,10 @@ public class AppConfig {
             var game5 = new OfficeGame(player2, player1, 18, 21);
             gameRepository.saveAll(List.of(game1, game2, game3, game4, game5));
 
-            var message1 = new GameMessage(player2, player1);
-            var message2 = new GameMessage(player3, player1);
-            gameMessageRepository.saveAll(List.of(message1, message2));
+            var message1 = new GameMessage(player2, player1, 20, 21);
+            var message2 = new GameMessage(player3, player1, 18, 21);
+            var message3 = new GameMessage(player1, player2, 21, 5);
+            gameMessageRepository.saveAll(List.of(message1, message2, message3));
         };
     }
 }
